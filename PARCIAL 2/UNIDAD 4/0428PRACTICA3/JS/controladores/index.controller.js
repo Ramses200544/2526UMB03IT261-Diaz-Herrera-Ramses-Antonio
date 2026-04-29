@@ -5,6 +5,7 @@ function Index($scope) {
 
     $scope.proveedores = ['Proveedor A', 'Proveedor B']
 
+
   
 }
 
