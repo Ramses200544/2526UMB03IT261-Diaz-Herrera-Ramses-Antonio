@@ -17,35 +17,34 @@ function Index($scope, $log) {
         console.log($scope.formConsultaRuta);
     }
 
-    $scope.optionEjemplo = {
-        etiqueta:'Chevy',
-        valor: 69
+    $scope.optionProveedor = [
+        {etiqueta: 'Compania A', valor: 1}, {etiqueta: 'Compania B', valor: 2 }
+    ]
+
+
+    $scope.optionAutos = [];
+    $scope.optionDriver = [];
+
+    $scope.cargarAutomoviles = function () {
+        $scope.formConsultaRuta.idProveedor = '';
+        $scope.formConsultaRuta.idDriver = ''
+        $scope.optionDriver = [];
+
+    if ($scope.formConsultaRuta.idProveedor == 1) {
+        $scope.optionAutos = [
+            {valor: 24, etiqueta: 'March'},
+            {valor: 25, etiqueta: 'Aveo'}
+        ]
+    }
+     if ($scope.formConsultaRuta.idProveedor== 2) {
+        $scope.optionAutos = [
+            {valor: 34, etiqueta: 'Sentra'},
+            {valor: 35, etiqueta: 'Corolla'}
+        ]
+    }
     }
 
-    $scope.optionAutos = [{
-        etiqueta:'Chevy',
-        valor: 1
-    }, 
-    {
-        etiqueta:'Aveo',
-        valor: 2
-    },
-    {
-        etiqueta:'Camaro',
-        valor: 3
-    },
-    {
-        etiqueta:'Suburban',
-        valor: 4
-    }];
+    }
 
-    $scope.optionProveedor = [
-        {etiqueta: 'Bimbo', valor: 44}, {etiqueta: 'Marinela', valor: 45 }
-    ]
 
-    $scope.optionDriver = [
-        {etiqueta: 'Oscar', valor: 20}, {etiqueta: 'Alex', valor: 18 }
-    ]
-
-}
 
