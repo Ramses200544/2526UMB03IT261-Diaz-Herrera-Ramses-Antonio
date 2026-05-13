@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+<div class="container" ng-app="app" ng-controller="Index">
+    <div class="row row-panel">
+        <div class="col-md-12">
+            <h3>Rutas</h3>
+            <hr>
+        </div>
+        <div class="col-md-4">
+            <label for="formConsultarRutasFechaInicio" class="form-label">Fecha de inicio</label>
+            <input type="date" class="form-control" id="formConsultarRutasFechaInicio"
+                   ng-model="formConsultaRuta.fechaInicio" ng-change="ctrlInpFechaInicio()"
+            >
+        </div>
+        <div class="col-md-4" ng-if="formConsultaRuta.fechaInicio">
+            <label for="formConsultarRutasFechaFin" class="form-label">Fecha de conclusión</label>
+            <input type="date" class="form-control" id="formConsultarRutasFechaFin" ng-model="formConsultaRuta.fechaFin"
+            >
+        </div>
+        <div class="col-md-4" ng-if="formConsultaRuta.fechaFin">
+            <label for="consultarProveedorSelect" class="form-label">Proveedor</label>
+            <select id="consultarProveedorSelect" class="form-select"
+                    ng-model="formConsultaRuta.idProveedor" ng-change="ctrlSlctProveedor()"
+            >
+                <option value=''>Seleccione un proveedor</option>
+                <option ng-repeat="item in optionsProveedores | orderBy:'etiqueta'" ng-value="item.valor" ng-bind="item.etiqueta"></option>
+            </select>
+        </div>
+        <div class="col-md-4" ng-if="formConsultaRuta.idProveedor">
+            <label for="consultarAutoSelect" class="form-label">Auto</label>
+            <select id="consultarAutoSelect" class="form-select" ng-model="formConsultaRuta.idAutomovil" ng-change="ctrlSlctAutomovil()">
+                <option value=''>Seleccione un auto</option>
+                <option ng-repeat="item in optionsAutos | orderBy:'etiqueta'" ng-value="item.valor" ng-bind="item.etiqueta"></option>
+            </select>
+        </div>
+        <div class="col-md-4" ng-if="formConsultaRuta.idAutomovil">
+            <label for="consultarDriverSelect" class="form-label">Driver</label>
+            <select id="consultarDriverSelect" class="form-select" ng-model="formConsultaRuta.idDriver" ng-change="ctrlSlctDriver()"
+            >
+                <option value=''>Seleccione un driver</option>
+                <option ng-repeat="item in optionsDrivers | orderBy:'etiqueta'" ng-value="item.valor" ng-bind="item.etiqueta"></option>
+            </select>
+        </div>
+        <div class="col-md-4" ng-if="formConsultaRuta.idDriver">
+            <label for="formConsultarRutasIdRuta" class="form-label">Id ruta</label>
+            <input type="text" class="form-control" id="formConsultarRutasIdRuta" ng-model="formConsultaRuta.idRuta"
+                   placeholder="Id ruta" >
+        </div>
+        <div class="col-md-4">
+            <label for="botonBuscar" class="form-label">&nbsp;</label>
+            <div class="d-grid gap-1">
+                <button type="button" class="btn btn-success"  id="botonBuscar" ng-click="imprimirMensaje()">Buscar
+                </button>
+            </div>
+        </div>
+        <div class="col-md-4" ng-if="banderaEjemplo">
+            <label for="botonBuscar" class="form-label">&nbsp;</label>
+            <div class="d-grid gap-1">
+                <button type="button" class="btn btn-primary">
+                    Nueva ruta
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+<script src="JS/libs/angular.min.js"></script>
+<script src="JS/modulos/app.module.js"></script>
+<script src="JS/controladores/index.controller.js"></script>
+
+
+</body>
+</html>
