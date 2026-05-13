@@ -17,12 +17,12 @@
         <div class="col-md-4">
             <label for="formConsultarRutasFechaInicio" class="form-label">Fecha de inicio</label>
             <input type="date" class="form-control" id="formConsultarRutasFechaInicio"
-                   ng-model="formConsultaRuta.fechaInicio" ng-change="ctrlInpFechaInicio()"
+                   ng-model="formConsultaRuta.fechaInicio" ng-change="ctrlInpFechaInicio()" 
             >
         </div>
         <div class="col-md-4" ng-if="formConsultaRuta.fechaInicio">
             <label for="formConsultarRutasFechaFin" class="form-label">Fecha de conclusión</label>
-            <input type="date" class="form-control" id="formConsultarRutasFechaFin" ng-model="formConsultaRuta.fechaFin"
+            <input type="date" class="form-control" id="formConsultarRutasFechaFin" ng-model="formConsultaRuta.fechaFin" 
             >
         </div>
         <div class="col-md-4" ng-if="formConsultaRuta.fechaFin">
@@ -69,6 +69,10 @@
                 </button>
             </div>
         </div>
+    </div>
+
+    <div class="alert alert-danger" role="alert" ng-bind="msgError" >
+        A simple danger alert—check it out!
     </div>
 
 

@@ -70,9 +70,35 @@ function Index($scope, $log) {
         idRuta: '',
     }
 
+    console.log($scope.formConsultaRuta);
+
     $scope.imprimirMensaje = () => {
-        console.log($scope.formConsultaRuta);
-    }
+        if(!$scope.formConsultaRuta.fechaInicio) {
+            $scope.msgError="Ingresa una fecha de inicio";
+            return;
+        }
+        else if(!$scope.formConsultaRuta.fechaFin) {
+            $scope.msgError="Ingresa una fecha de fin";
+            return;
+        }
+        else if(!$scope.formConsultaRuta.idProveedor) {
+            $scope.msgError="Ingresa un proveedor";
+            return; 
+        }
+        else if(!$scope.formConsultaRuta.idAutomovil) {
+            $scope.msgError="Ingresa un automovil";
+            return; 
+        }
+        else if(!$scope.formConsultaRuta.idDriver) {
+            $scope.msgError="Ingresa un driver";
+            return; 
+        }
+        else {
+            $scope.msgError="Ingresa una ruta";
+            return; 
+        }
+        
+        
 
     //Función que controla el evento de cambio del input Fecha Inicio
     $scope.ctrlInpFechaInicio = () => {
@@ -102,7 +128,9 @@ function Index($scope, $log) {
         }
         console.log("Seleccionaste otro Driver");
     }
+    
   
 
 
+}
 }
